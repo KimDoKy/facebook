@@ -1,4 +1,4 @@
-from django.conf import settings
+from solfacebook import settings
 from django.shortcuts import render
 
 def login_fbv(request):
