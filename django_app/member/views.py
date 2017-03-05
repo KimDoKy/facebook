@@ -1,7 +1,8 @@
 from pprint import pprint
 
 import requests
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
 
 from solfacebook import settings
 
@@ -13,6 +14,9 @@ def login_fbv(request):
     }
     return render(request, 'member/login.html', context)
 
+def logout_fbv(request):
+    logout(request)
+    return redirect('index')
 
 def login_facebook(request):
     APP_ID = settings.config['facebook']['app_id']
@@ -48,3 +52,7 @@ def login_facebook(request):
         pprint(dict_debug_token)
         USER_ID = dict_debug_token['data']['user_id']
         print('USER_ID : %s' % USER_ID)
+
+        user = authenticate(facebook_id=USER_ID)
+        login(request, user)
+        return redirect('index')

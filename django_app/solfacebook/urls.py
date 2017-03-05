@@ -21,5 +21,5 @@ from solfacebook import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^member/', include('member.urls')),
-    url(r'^$', views.index, name='name'),
+    url(r'^$', views.index, name='index'),
 ]

@@ -1,6 +1,4 @@
-from django.contrib.auth.models import AbstractUser, UserManager
-from django.db import models
-from django.utils.crypto import get_random_string
+from django.contrib.auth.models import AbstractUser
 
 
 # class MyUserManager(UserManager):
